@@ -9,6 +9,9 @@ description = "Dynamically compose the right agent harness for any task from pre
 readme = "README.md"
 license = { text = "Apache-2.0" }
 requires-python = ">=3.11"
+authors = [
+    { name = "harness-composer contributors" },
+]
 keywords = ["agents", "llm", "harness", "guardrails", "langchain"]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -43,8 +46,11 @@ all = [
 ]
 
 [project.urls]
-Repository = "https://github.com/your-org/harness-composer"
-Issues = "https://github.com/your-org/harness-composer/issues"
+Repository = "https://github.com/routsom/harness-composer"
+Issues = "https://github.com/routsom/harness-composer/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["harness_composer"]
 
 [tool.ruff]
 line-length = 100
