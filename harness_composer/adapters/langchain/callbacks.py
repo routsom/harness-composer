@@ -45,7 +45,7 @@ class GuardrailViolation(RuntimeError):
     """Raised when a guardrail returns BLOCK, halting agent execution."""
 
 
-class HarnessCallbackHandler(BaseCallbackHandler):
+class HarnessCallbackHandler(BaseCallbackHandler):  # type: ignore[misc]
     """
     LangChain callback handler that enforces a :class:`HarnessConfig`.
 

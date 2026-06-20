@@ -57,7 +57,7 @@ class WebSearchToolWrapper(BaseToolWrapper):
     def required_permissions(self) -> frozenset[ToolPermission]:
         return frozenset({ToolPermission.READ_ONLY})
 
-    def invoke(self, *, query: str, max_results: int | None = None) -> dict[str, Any]:
+    def invoke(self, *, query: str, max_results: int | None = None) -> dict[str, Any]:  # type: ignore[override]
         if not query or not query.strip():
             raise ValueError("'query' must be a non-empty string.")
         results = self._search_fn(query, max_results or self._max_results)

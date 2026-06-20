@@ -65,7 +65,7 @@ class HttpRequestToolWrapper(BaseToolWrapper):
             perms.add(ToolPermission.WRITE)
         return frozenset(perms)
 
-    def invoke(
+    def invoke(  # type: ignore[override]
         self,
         *,
         url: str,

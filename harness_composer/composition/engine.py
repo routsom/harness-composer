@@ -79,7 +79,9 @@ class CompositionEngine:
         Heuristic: use compression for multi-step / financial tasks; minimal
         for everything else.
         """
-        all_strats = self._registry.list_by_kind(ComponentKind.CONTEXT_STRATEGY)
+        all_strats: list[ComponentMetadata] = self._registry.list_by_kind(
+            ComponentKind.CONTEXT_STRATEGY
+        )
         if not all_strats:
             return None
 
@@ -94,7 +96,7 @@ class CompositionEngine:
                 return s
 
         # Fallback: return the first available strategy.
-        return all_strats[0]
+        return all_strats[0] if all_strats else None
 
     def _select_guardrails(self, profile: TaskProfile) -> list[ComponentMetadata]:
         """
