@@ -40,7 +40,7 @@ class CompositionEngine:
         components from.
     """
 
-    def __init__(self, registry: "ComponentRegistry") -> None:  # type: ignore[name-defined]
+    def __init__(self, registry: ComponentRegistry) -> None:  # type: ignore[name-defined]  # noqa: F821
         self._registry = registry
 
     def compose(self, profile: TaskProfile) -> HarnessConfig:

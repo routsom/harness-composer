@@ -3,13 +3,13 @@
 from __future__ import annotations
 
 from abc import abstractmethod
-from enum import Enum
+from enum import StrEnum
 from typing import Any
 
-from harness_composer.library.base import BaseComponent, ComponentKind, ComponentMetadata
+from harness_composer.library.base import BaseComponent
 
 
-class ToolPermission(str, Enum):
+class ToolPermission(StrEnum):
     """
     Permission flags that gate what a tool wrapper is allowed to do.
 

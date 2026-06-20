@@ -23,7 +23,7 @@ with a helpful message.
 from __future__ import annotations
 
 import logging
-from typing import Any, Union
+from typing import Any
 
 try:
     from langchain_core.callbacks import BaseCallbackHandler
@@ -146,6 +146,6 @@ class HarnessCallbackHandler(BaseCallbackHandler):
                 )
 
     def on_tool_error(
-        self, error: Union[Exception, KeyboardInterrupt], **kwargs: Any
+        self, error: Exception | KeyboardInterrupt, **kwargs: Any
     ) -> None:
         logger.error("Tool error captured by HarnessCallbackHandler: %s", error)

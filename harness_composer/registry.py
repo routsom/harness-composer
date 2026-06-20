@@ -22,7 +22,7 @@ In practice, this means:
 
 from __future__ import annotations
 
-from typing import Iterator
+from collections.abc import Iterator
 
 from harness_composer.library.base import BaseComponent, ComponentKind, ComponentMetadata
 
@@ -42,7 +42,7 @@ class ComponentRegistry:
         for c in components or []:
             self.register(c)
 
-    def register(self, component: BaseComponent) -> "ComponentRegistry":
+    def register(self, component: BaseComponent) -> ComponentRegistry:
         """
         Add *component* to the registry.
 
@@ -102,22 +102,22 @@ def default_registry() -> ComponentRegistry:
     >>> len(registry)
     10
     """
-    from harness_composer.library.tool_wrappers import (
-        WebSearchToolWrapper,
-        HttpRequestToolWrapper,
-    )
     from harness_composer.library.context_strategies import (
-        MinimalContextStrategy,
         CompressionContextStrategy,
+        MinimalContextStrategy,
     )
     from harness_composer.library.guardrails import (
         FinancialThresholdGuardrail,
-        PiiRedactionGuardrail,
         IrreversibilityConfirmationGuardrail,
+        PiiRedactionGuardrail,
+    )
+    from harness_composer.library.tool_wrappers import (
+        HttpRequestToolWrapper,
+        WebSearchToolWrapper,
     )
     from harness_composer.library.verification import (
-        ExternalConfirmationCheck,
         DatabaseWriteCheck,
+        ExternalConfirmationCheck,
     )
 
     return ComponentRegistry(

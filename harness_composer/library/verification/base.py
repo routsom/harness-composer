@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from abc import abstractmethod
-from enum import Enum
+from enum import StrEnum
 from typing import Any
 
 from pydantic import BaseModel, ConfigDict
@@ -11,7 +11,7 @@ from pydantic import BaseModel, ConfigDict
 from harness_composer.library.base import BaseComponent
 
 
-class VerificationStatus(str, Enum):
+class VerificationStatus(StrEnum):
     VERIFIED = "verified"   # The action provably had its intended effect.
     FAILED   = "failed"     # The action did not have the intended effect.
     UNCERTAIN= "uncertain"  # Could not determine — human review recommended.

@@ -8,7 +8,8 @@ without network access.
 
 from __future__ import annotations
 
-from typing import Any, Callable
+from collections.abc import Callable
+from typing import Any
 
 from harness_composer.library.base import ComponentKind, ComponentMetadata
 from harness_composer.library.tool_wrappers.base import BaseToolWrapper, ToolPermission

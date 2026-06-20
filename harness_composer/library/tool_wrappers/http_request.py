@@ -7,9 +7,9 @@ outbound requests beyond what the task profile justifies.
 
 from __future__ import annotations
 
-import urllib.request
-import urllib.error
 import json
+import urllib.error
+import urllib.request
 from typing import Any
 
 from harness_composer.library.base import ComponentKind, ComponentMetadata
@@ -53,7 +53,9 @@ class HttpRequestToolWrapper(BaseToolWrapper):
                 "Generic HTTP client with domain allow-listing and optional "
                 "mutation support."
             ),
-            tags=frozenset({"external_api", "http", "read" if not self._allow_mutations else "write"}),
+            tags=frozenset(
+                {"external_api", "http", "read" if not self._allow_mutations else "write"}
+            ),
         )
 
     @property

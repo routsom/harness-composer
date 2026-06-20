@@ -16,7 +16,6 @@ Detected patterns (regex-based, no external dependencies)
 
 from __future__ import annotations
 
-import json
 import re
 from typing import Any
 

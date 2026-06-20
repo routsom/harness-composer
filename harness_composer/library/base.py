@@ -3,13 +3,13 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
-from enum import Enum
+from enum import StrEnum
 from typing import Any
 
 from pydantic import BaseModel, ConfigDict
 
 
-class ComponentKind(str, Enum):
+class ComponentKind(StrEnum):
     TOOL_WRAPPER       = "tool_wrapper"
     CONTEXT_STRATEGY   = "context_strategy"
     GUARDRAIL          = "guardrail"

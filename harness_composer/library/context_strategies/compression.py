@@ -16,7 +16,11 @@ Behaviour
 
 from __future__ import annotations
 
-from typing import Any, Callable
+from collections.abc import Callable
+from typing import Any
+
+from harness_composer.library.base import ComponentKind, ComponentMetadata
+from harness_composer.library.context_strategies.base import BaseContextStrategy, ContextWindow
 
 
 def _default_summarise(messages: list[dict[str, Any]]) -> str:
@@ -27,10 +31,6 @@ def _default_summarise(messages: list[dict[str, Any]]) -> str:
         content = str(m.get("content", ""))[:80]
         parts.append(f"[{role}] {content}")
     return " | ".join(parts)
-
-
-from harness_composer.library.base import ComponentKind, ComponentMetadata
-from harness_composer.library.context_strategies.base import BaseContextStrategy, ContextWindow
 
 
 class CompressionContextStrategy(BaseContextStrategy):

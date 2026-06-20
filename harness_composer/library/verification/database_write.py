@@ -12,15 +12,8 @@ pluggable callable for offline / unit-test usage.
 
 from __future__ import annotations
 
-from typing import Any, Callable
-
-
-def _stub_read(record_id: str, table: str) -> dict[str, Any] | None:
-    """Stub reader — returns a fake record for any non-empty ID."""
-    if record_id:
-        return {"id": record_id, "table": table, "_stub": True}
-    return None
-
+from collections.abc import Callable
+from typing import Any
 
 from harness_composer.library.base import ComponentKind, ComponentMetadata
 from harness_composer.library.verification.base import (
@@ -28,6 +21,13 @@ from harness_composer.library.verification.base import (
     VerificationResult,
     VerificationStatus,
 )
+
+
+def _stub_read(record_id: str, table: str) -> dict[str, Any] | None:
+    """Stub reader — returns a fake record for any non-empty ID."""
+    if record_id:
+        return {"id": record_id, "table": table, "_stub": True}
+    return None
 
 
 class DatabaseWriteCheck(BaseVerificationCheck):

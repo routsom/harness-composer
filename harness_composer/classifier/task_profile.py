@@ -2,13 +2,12 @@
 
 from __future__ import annotations
 
-from enum import Enum
-from typing import FrozenSet
+from enum import StrEnum
 
 from pydantic import BaseModel, ConfigDict, Field
 
 
-class ActionType(str, Enum):
+class ActionType(StrEnum):
     """High-level category of the action a task intends to perform."""
 
     READ = "read"             # Retrieving or summarising information; no side-effects.
@@ -19,7 +18,7 @@ class ActionType(str, Enum):
     ORCHESTRATE = "orchestrate"   # Spinning up sub-agents or chaining multiple tasks.
 
 
-class RiskLevel(str, Enum):
+class RiskLevel(StrEnum):
     """Composite risk level assigned by the classifier."""
 
     LOW = "low"
@@ -72,7 +71,7 @@ class TaskProfile(BaseModel):
 
     # ── External systems ─────────────────────────────────────────────────────
 
-    required_external_systems: FrozenSet[str] = Field(
+    required_external_systems: frozenset[str] = Field(
         default_factory=frozenset,
         description="Identifiers of external systems the task is expected to call "
                     "(e.g. 'payment_processor', 'flight_search_api').",

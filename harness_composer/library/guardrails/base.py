@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from abc import abstractmethod
-from enum import Enum
+from enum import StrEnum
 from typing import Any
 
 from pydantic import BaseModel, ConfigDict
@@ -11,7 +11,7 @@ from pydantic import BaseModel, ConfigDict
 from harness_composer.library.base import BaseComponent
 
 
-class GuardrailOutcome(str, Enum):
+class GuardrailOutcome(StrEnum):
     ALLOW   = "allow"    # Proceed normally.
     BLOCK   = "block"    # Hard stop — do not execute.
     ESCALATE= "escalate" # Pause and route to a human reviewer.

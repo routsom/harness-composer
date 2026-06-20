@@ -18,8 +18,8 @@ auditability is the entire point of this product."
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass, field
-from typing import Callable, Pattern
+from dataclasses import dataclass
+from re import Pattern
 
 from harness_composer.classifier.base import BaseClassifier
 from harness_composer.classifier.task_profile import (
@@ -70,7 +70,8 @@ PII_SIGNALS: list[Signal] = [
 
 # Irreversibility signals
 IRREVERSIBLE_SIGNALS: list[Signal] = [
-    _sig("delete",      r"\bdelete|destroy|drop table|truncate\b",       "destructive data operation"),
+    _sig("delete",      r"\bdelete|destroy|drop table|truncate\b",
+                        "destructive data operation"),
     _sig("send_email",  r"\bsend.{0,10}\bemail\b",                       "outbound email"),
     _sig("send_message",r"\bsend.{0,10}\b(message|sms|text|slack|tweet)\b","outbound message"),
     _sig("publish",     r"\bpublish|deploy|go live|release\b",           "publish / deploy action"),

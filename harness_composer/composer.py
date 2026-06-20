@@ -21,7 +21,6 @@ from typing import Any
 
 from harness_composer.classifier.base import BaseClassifier
 from harness_composer.classifier.rules_based import RulesBasedClassifier
-from harness_composer.classifier.task_profile import TaskProfile
 from harness_composer.composition.engine import CompositionEngine
 from harness_composer.composition.harness_config import HarnessConfig
 from harness_composer.registry import ComponentRegistry
@@ -102,7 +101,7 @@ class HarnessComposer:
         self,
         task: str,
         agent: Any,
-        adapter: "BaseFrameworkAdapter",  # type: ignore[name-defined]
+        adapter: BaseFrameworkAdapter,  # type: ignore[name-defined]  # noqa: F821
         *,
         agent_id: str | None = None,
         agent_track_record: float | None = None,

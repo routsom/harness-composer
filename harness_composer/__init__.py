@@ -11,9 +11,9 @@ Quickstart
 >>> print(harness)
 """
 
+from harness_composer.classifier.task_profile import ActionType, RiskLevel, TaskProfile
 from harness_composer.composer import HarnessComposer
 from harness_composer.composition.harness_config import HarnessConfig
-from harness_composer.classifier.task_profile import TaskProfile, ActionType, RiskLevel
 
 __all__ = [
     "HarnessComposer",

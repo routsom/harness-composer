@@ -12,7 +12,15 @@ pluggable callable so the component can be unit-tested offline.
 
 from __future__ import annotations
 
-from typing import Any, Callable
+from collections.abc import Callable
+from typing import Any
+
+from harness_composer.library.base import ComponentKind, ComponentMetadata
+from harness_composer.library.verification.base import (
+    BaseVerificationCheck,
+    VerificationResult,
+    VerificationStatus,
+)
 
 
 def _stub_lookup(reference_id: str) -> dict[str, Any] | None:
@@ -23,14 +31,6 @@ def _stub_lookup(reference_id: str) -> dict[str, Any] | None:
     if reference_id:
         return {"status": "CONFIRMED", "reference": reference_id}
     return None
-
-
-from harness_composer.library.base import ComponentKind, ComponentMetadata
-from harness_composer.library.verification.base import (
-    BaseVerificationCheck,
-    VerificationResult,
-    VerificationStatus,
-)
 
 
 class ExternalConfirmationCheck(BaseVerificationCheck):

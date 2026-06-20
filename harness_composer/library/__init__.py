@@ -15,9 +15,9 @@ verification       — checks that confirm an action had its intended effect.
 """
 
 from harness_composer.library.base import (
+    BaseComponent,
     ComponentKind,
     ComponentMetadata,
-    BaseComponent,
 )
 
 __all__ = ["ComponentKind", "ComponentMetadata", "BaseComponent"]
